@@ -56,22 +56,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {                                     
     $counter_readable_files     = 0;                                                   // Счётчик читаемых файлов
     $counter_readable_folders   = 0;                                                   // Счётчик читаемых каталогов
 
-    for ($i = 0; $i < count($directories); $i++) {                                      // Перебираем найденные элементы
-        $name = $directories[$i];                                                       // Получаем имя элемента
-        if ($name != '.' && $name != '..') {                                            // Убираем 'метки' каталога
-            $readable = is_readable($global_path . $name);                              // Можно ли прочесть ?
-            if (is_dir($global_path . $name)) {                                         // Если имя является каталогом
-                $type = 'dirs';                                                         // Добавляем в каталоги
-                $counter_folders++;                                                     // Считаем количество найденных элемнтов
-                if ($readable) $counter_readable_folders++;                             // Считаем читаемые папки
-            } else {                                                                    // Если имя является файлом
+    for ($i = 0; $i < count($directories); $i++) {                                     // Перебираем найденные элементы
+        $name = $directories[$i];                                                      // Получаем имя элемента
+        if ($name != '.' && $name != '..') {                                           // Убираем 'метки' каталога
+            $readable = is_readable($global_path . $name);                             // Можно ли прочесть ?
+            if (is_dir($global_path . $name)) {                                        // Если имя является каталогом
+                $type = 'dirs';                                                        // Добавляем в каталоги
+                $counter_folders++;                                                    // Считаем количество найденных элемнтов
+                if ($readable) $counter_readable_folders++;                            // Считаем читаемые папки
+            } else {                                                                   // Если имя является файлом
                 if (exif_imagetype($global_path . $name)) {
-                    $type = 'files';                                                        // Добавляем в файлы
-                    $counter_files++;                                                       // Считаем количество найденных элемнтов
-                    if ($readable) $counter_readable_files++;                               // Считаем читаемые файлы
+                    $type = 'files';                                                   // Добавляем в файлы
+                    $counter_files++;                                                  // Считаем количество найденных элемнтов
+                    if ($readable) $counter_readable_files++;                          // Считаем читаемые файлы
                 }
             }
-            array_push($result['body'][$type], [                                        // Добавляем в каталоги
+            array_push($result['body'][$type], [                                       // Добавляем в каталоги
                 'name' => $name,
                 'read' => $readable
             ]);
