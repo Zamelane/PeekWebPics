@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<style type="text/css">
+	
+		.st0{clip-path:url(#SVGID_00000104670680442630060700000009482997416226893746_);fill:#29ABE2;stroke:#00A99D;stroke-miterlimit:10;}
+	.st1{fill:none;stroke:#29ABE2;stroke-miterlimit:10;}
+	.st2{opacity:0.5;}
+	.st3{clip-path:url(#SVGID_00000137112729378238678770000001354483128669288860_);fill:none;stroke:#000000;stroke-miterlimit:10;}
+	
+		.st4{clip-path:url(#SVGID_00000103260717910424736250000012034473739422609283_);fill:#333333;stroke:#333333;stroke-miterlimit:10;}
+	
+		.st5{clip-path:url(#SVGID_00000103260717910424736250000012034473739422609283_);fill:#4D4D4D;stroke:#4D4D4D;stroke-miterlimit:10;}
+	.st6{fill:#FBB03B;stroke:#FBB03B;stroke-miterlimit:10;}
+</style>
+<g id="Заполнение">
+	<defs>
+		<circle id="SVGID_1_" cx="8" cy="8" r="7.5"/>
+	</defs>
+	<clipPath id="SVGID_00000053545376536266711140000001477939851269033378_">
+		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+	</clipPath>
+	
+		<rect x="0.5" y="0.5" style="clip-path:url(#SVGID_00000053545376536266711140000001477939851269033378_);fill:#29ABE2;stroke:#00A99D;stroke-miterlimit:10;" width="15" height="15"/>
+</g>
+<g id="Круг_00000120540359401835202460000006604565340274935698_">
+	<circle class="st1" cx="8" cy="8" r="7.5"/>
+</g>
+<g id="Сетка" class="st2">
+	<defs>
+		<circle id="SVGID_00000116933679710199785590000004557288344832170680_" class="st2" cx="8" cy="8" r="8"/>
+	</defs>
+	<clipPath id="SVGID_00000036218513872434458160000009570288683241041559_">
+		<use xlink:href="#SVGID_00000116933679710199785590000004557288344832170680_"  style="overflow:visible;"/>
+	</clipPath>
+	
+		<ellipse style="clip-path:url(#SVGID_00000036218513872434458160000009570288683241041559_);fill:none;stroke:#000000;stroke-miterlimit:10;" cx="8" cy="8" rx="3.5" ry="8.5"/>
+	
+		<line style="clip-path:url(#SVGID_00000036218513872434458160000009570288683241041559_);fill:none;stroke:#000000;stroke-miterlimit:10;" x1="-0.5" y1="8" x2="16.5" y2="8"/>
+	
+		<path style="clip-path:url(#SVGID_00000036218513872434458160000009570288683241041559_);fill:none;stroke:#000000;stroke-miterlimit:10;" d="
+		M1,13c4.1-2.5,9.9-2.5,14,0"/>
+	
+		<path style="clip-path:url(#SVGID_00000036218513872434458160000009570288683241041559_);fill:none;stroke:#000000;stroke-miterlimit:10;" d="
+		M14,3"/>
+	
+		<path style="clip-path:url(#SVGID_00000036218513872434458160000009570288683241041559_);fill:none;stroke:#000000;stroke-miterlimit:10;" d="
+		M2,3"/>
+	
+		<path style="clip-path:url(#SVGID_00000036218513872434458160000009570288683241041559_);fill:none;stroke:#000000;stroke-miterlimit:10;" d="
+		M1,3c4.1,2.6,9.9,2.6,14,0"/>
+</g>
+<g id="Заполнение__x28_копия_x29_">
+	<defs>
+		<circle id="SVGID_00000137090019690855520760000005183843518050006692_" cx="8" cy="8" r="8"/>
+	</defs>
+	<clipPath id="SVGID_00000044856722058617226510000002154344748026956441_">
+		<use xlink:href="#SVGID_00000137090019690855520760000005183843518050006692_"  style="overflow:visible;"/>
+	</clipPath>
+	
+		<polyline style="clip-path:url(#SVGID_00000044856722058617226510000002154344748026956441_);fill:#333333;stroke:#333333;stroke-miterlimit:10;" points="
+		-2,17 4.5,7.5 11,17 	"/>
+	
+		<polyline style="clip-path:url(#SVGID_00000044856722058617226510000002154344748026956441_);fill:#4D4D4D;stroke:#4D4D4D;stroke-miterlimit:10;" points="
+		6.5,16.5 10.5,9.5 15,16.5 	"/>
+</g>
+<g id="Слой_5">
+	<circle class="st6" cx="11" cy="4" r="1.5"/>
+</g>
+</svg>
