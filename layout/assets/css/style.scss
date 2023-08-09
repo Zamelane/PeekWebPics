@@ -303,10 +303,15 @@ main {
     }
   }
   &.sidebar--open.sidebar--pin .grid_outer {
-    @media (min-width: 716px) {
-      margin-left: var(--sidebar-width);
+    @media (max-width: 824px) {
       .grid-item {
         width: unset;
+      }
+    }
+    @media (max-width: 716px) {
+      margin-left: unset;
+      .grid-item {
+        width: 100vw;
       }
     }
   }
@@ -322,9 +327,6 @@ main {
         padding: unset;
         margin-left: unset;
       }
-      @media (max-height: 872px) {
-        padding: 0;
-      }
     }
     .grid {
       margin: 0;
@@ -338,7 +340,7 @@ main {
           width: unset;
         }
         @media (max-height: 872px) {
-          height: 100%;
+          height: calc(100vh - var(--cards-gap) - var(--header-height));
         }
         img {
           @media (max-width: 824px) {
