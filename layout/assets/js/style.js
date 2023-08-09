@@ -120,7 +120,7 @@ function updateGrid() {
 // Если (какое-то?) изображение загрузилось, то обновляется макет кирпичного grid'а
 $grid.imagesLoaded().progress(updateGrid);
 // Обновление раскладки при изменении размеров окна
-$('window').resize(updateGrid);
+$('.grid_outer').resize(updateGrid);
 
 // Переключение блюра карточек
 function blurCards() {
@@ -151,7 +151,7 @@ function horizontalWheel(container) {
   let scrollWidth;
 
   /** Desired scroll distance per animation frame */
-  let getScrollStep = () => scrollWidth / 500 /* ADJUST TO YOUR WISH */ ;
+  let getScrollStep = () => scrollWidth / 2000 /* ADJUST TO YOUR WISH */ ;
 
   /** Target value for `scrollLeft` */
   let targetLeft;
