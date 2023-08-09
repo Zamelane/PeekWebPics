@@ -43,6 +43,13 @@ function setHorizontalLayout() {
     }
   });
 
+  let elements = document.getElementsByClassName('grid-item')
+  for (let i = 0; i < elements.length; i++) {
+    let i_element = elements[i].getElementsByTagName('img')
+    let name = i_element[0].src.split('/')
+    i_element[0].src = 'thumbs/w400/' + name[name.length - 1]
+  }
+
   updateGrid();
 }
 function setVerticalLayout() {
@@ -60,6 +67,13 @@ function setVerticalLayout() {
       fitWidth: true,
     }
   });
+
+  let elements = document.getElementsByClassName('grid-item')
+  for (let i = 0; i < elements.length; i++) {
+    let i_element = elements[i].getElementsByTagName('img')
+    let name = i_element[0].src.split('/')
+    i_element[0].src = 'thumbs/h400/' + name[name.length - 1]
+  }
   
   updateGrid();
 }
