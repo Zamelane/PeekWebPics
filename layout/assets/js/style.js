@@ -10,17 +10,17 @@ if (+localStorage.getItem( 'pinSidebar'))    pinSidebar();
 if (+localStorage.getItem('horizontalLayout')) setHorizontalLayout();
 else                                             setVerticalLayout();
 // Восстановление блюра карточек в исходное состояние 
-if ( localStorage.getItem('blurCards') == 1) { 
+if (localStorage.getItem('blurCards') == 1) { 
   $main.addClass   ('grid-item--blur'  ); 
   $main.removeClass('grid-item--blur-2'); 
   $('.blur-cards-btn').html('Blur x2');
 } else 
-if ( localStorage.getItem('blurCards') == 2) { 
+if (localStorage.getItem('blurCards') == 2) { 
   $main.addClass   ('grid-item--blur-2'); 
   $main.removeClass('grid-item--blur'  ); 
   $('.blur-cards-btn').html('Unblur');
 } else 
-if ( localStorage.getItem('blurCards') == 0) {
+if (localStorage.getItem('blurCards') == 0) {
   $main.removeClass('grid-item--blur'  ); 
   $main.removeClass('grid-item--blur-2'); 
   $('.blur-cards-btn').html('Blur');
@@ -63,7 +63,6 @@ function changeLayout() {
 }
 // Установка горизонтальной раскладки/макета карточек-картинок
 function setHorizontalLayout() {
-  console.log('Hor')
   $main.addClass('grid--horizontal');
   localStorage.setItem('horizontalLayout', 1)
   $('.layout-change-btn').html('Vertical')
@@ -80,11 +79,17 @@ function setHorizontalLayout() {
     }
   });
 
+  let elements = $('.grid-item');
+  for (let i = 0; i < elements.length; i++) {
+    let i_element = elements[i].getElementsByTagName('img');
+    let name = i_element[0].src.split('/');
+    i_element[0].src = 'thumbs/h400/' + name[name.length - 1];
+  }
+
   updateGrid();
 }
 // Установка вертикальной раскладки/макета карточек-картинок
 function setVerticalLayout() {
-  console.log('Vert')
   $main.removeClass('grid--horizontal');
   localStorage.setItem('horizontalLayout', 0)
   $('.layout-change-btn').html('Horizontal');
@@ -98,6 +103,13 @@ function setVerticalLayout() {
       fitWidth: true,
     }
   });
+
+  let elements = $('.grid-item');
+  for (let i = 0; i < elements.length; i++) {
+    let i_element = elements[i].getElementsByTagName('img');
+    let name = i_element[0].src.split('/');
+    i_element[0].src = 'thumbs/w400/' + name[name.length - 1];
+  }
   
   updateGrid();
 }
