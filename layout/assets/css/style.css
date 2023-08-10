@@ -134,11 +134,13 @@ body {
 .btn.quad-btn {
   padding: unset;
   width: 32px;
+  font-size: 20px;
 }
 .btn.circle-btn {
   padding: unset;
   width: 32px;
   border-radius: 50%;
+  font-size: 20px;
 }
 
 .droplist {
@@ -202,7 +204,6 @@ header .path-line a {
   text-overflow: ellipsis;
 }
 header .path-line .folder-select-btn {
-  font-size: 16px;
   color: #888;
   margin: 0 2px;
 }
@@ -258,6 +259,56 @@ main .sidebar .btn-place {
   main .sidebar .btn-place .pin-sidebar-btn {
     display: none;
   }
+}
+main .sidebar .tree {
+  padding: 16px 0;
+}
+main .sidebar .tree-item {
+  cursor: pointer;
+  display: block;
+}
+main .sidebar .tree-item:hover > .label {
+  text-decoration: underline;
+}
+main .sidebar .tree-item input[type=checkbox] {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+main .sidebar .tree-item .label {
+  font-size: 16px;
+  color: #888;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--border-r);
+  height: 32px;
+}
+main .sidebar .tree-item .label::before {
+  content: "";
+  background: url("./../img/icon/arrow-corner_gray.svg");
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+  vertical-align: -4px;
+}
+main .sidebar .tree-item input[type=checkbox]:checked + .label {
+  color: #fff;
+}
+main .sidebar .tree-item .branches {
+  display: none;
+  margin-left: 10px;
+  border-left: #222; /*
+display: flex;
+flex-direction: column;
+gap: 8px;*/
+}
+main .sidebar .tree-item input[type=checkbox]:checked + .label + .branches {
+  display: block;
+}
+main .sidebar .tree-item input[type=checkbox]:checked + .label::before {
+  background: url("./../img/icon/arrow-corner.svg");
+  transform: rotate(90deg);
 }
 main .sidebar footer {
   padding: 24px 8px;
@@ -355,6 +406,9 @@ main .grid-item img {
 @media (max-width: 824px) {
   main.sidebar--open.sidebar--pin .grid_outer .grid-item {
     width: unset;
+  }
+  main.sidebar--open.sidebar--pin .grid_outer .grid-item img {
+    border-radius: calc(var(--border-r) * 2);
   }
 }
 @media (max-width: 716px) {

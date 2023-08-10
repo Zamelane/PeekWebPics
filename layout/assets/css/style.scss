@@ -80,11 +80,13 @@ body {
   &.quad-btn {
     padding: unset;
     width: 32px;
+    font-size: 20px;
   }
   &.circle-btn { 
     padding: unset;
     width: 32px;
     border-radius: 50%;
+    font-size: 20px;
   }
 }
 // Выпадающий список
@@ -126,6 +128,7 @@ header {
     padding: 8px;
     gap: 8px;
   }
+  // Путь
   .path-line {
     display: flex;
     height: 32px;
@@ -150,7 +153,6 @@ header {
       text-overflow: ellipsis;
     }
     .folder-select-btn {
-      font-size: 16px;
       color: #888;
       margin: 0 2px;
       &:hover {
@@ -158,6 +160,7 @@ header {
       }
     }
   }
+  // Сортировка
   .sort-section {
     display: flex;
     justify-self: end;
@@ -165,7 +168,7 @@ header {
     gap: 4px;
     .change-direction-btn {
       .down {
-        >* {
+        > * {
           transform: rotate(180deg);
         }
       }
@@ -207,6 +210,57 @@ main {
       @media (max-width: 716px) {
         .pin-sidebar-btn {
           display: none;
+        }
+      }
+    }
+    // Дерево
+    .tree {
+      padding: 16px 0;
+      &-item {
+        cursor: pointer;
+        display: block;
+        &:hover > .label {
+          text-decoration: underline;
+        }
+        input[type="checkbox"] {
+          visibility: hidden;
+          width: 0;
+          height: 0;
+        }
+        .label {
+          font-size: 16px;
+          color: #888;
+          display: inline-flex;
+          align-items: center;
+          border-radius: var(--border-r);
+          height: 32px;
+          &::before {
+            content: '';
+            background: url("./../img/icon/arrow-corner_gray.svg");
+            display: inline-block;
+            width:  20px;
+            height: 20px;
+            margin-right:    4px;
+            vertical-align: -4px;
+          }
+        }
+        input[type="checkbox"]:checked + .label {
+          color: #fff;
+        }
+        .branches {
+          display: none;
+          margin-left: 10px;
+          border-left: #222;/*
+          display: flex;
+          flex-direction: column;
+          gap: 8px;*/
+        }
+        input[type="checkbox"]:checked + .label + .branches {
+          display: block;
+        }
+        input[type="checkbox"]:checked + .label::before {
+          background: url("./../img/icon/arrow-corner.svg");
+          transform: rotate(90deg);
         }
       }
     }
@@ -307,6 +361,9 @@ main {
     @media (max-width: 824px) {
       .grid-item {
         width: unset;
+        img {
+          border-radius: calc(var(--border-r) * 2);
+        }
       }
     }
     @media (max-width: 716px) {
@@ -325,7 +382,7 @@ main {
       margin: 0;
       overflow-x: unset; 
       @media (max-width: 824px) {
-        padding: unset;
+        padding:     unset;
         margin-left: unset;
       }
     }
