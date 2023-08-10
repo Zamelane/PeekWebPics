@@ -1,7 +1,8 @@
 @font-face {
   font-family: "Roboto Flex";
-  src: url(./font/RobotoFlex.ttf);
   font-weight: 100 1000;
+  src: url(./font/RobotoFlex.woff2) format("woff2"),
+       url(./font/RobotoFlex.ttf)   format("truetype");
 }
 
 * {
@@ -24,10 +25,10 @@
 body {
   background: #000;
   color: #fff;
-  padding-top: var(--header-height);
   user-select: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: #0000;
+  padding-top: var(--header-height);
 }
 
 /*  ===  Mini-Bootstrap  ===  */
@@ -76,15 +77,15 @@ body {
   &:active {
     background-color: #444;
   }
-}
-.btn.quad-btn {
-  padding: unset;
-  width: 32px;
-}
-.btn.circle-btn { 
-  padding: unset;
-  width: 32px;
-  border-radius: 50%;
+  &.quad-btn {
+    padding: unset;
+    width: 32px;
+  }
+  &.circle-btn { 
+    padding: unset;
+    width: 32px;
+    border-radius: 50%;
+  }
 }
 // Выпадающий список
 .droplist {

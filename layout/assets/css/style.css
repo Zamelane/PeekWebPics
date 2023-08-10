@@ -1,8 +1,8 @@
 @charset "UTF-8";
 @font-face {
   font-family: "Roboto Flex";
-  src: url(./font/RobotoFlex.ttf);
   font-weight: 100 1000;
+  src: url(./font/RobotoFlex.woff2) format("woff2"), url(./font/RobotoFlex.ttf) format("truetype");
 }
 * {
   margin: 0;
@@ -24,11 +24,11 @@
 body {
   background: #000;
   color: #fff;
-  padding-top: var(--header-height);
   -moz-user-select: none;
        user-select: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  padding-top: var(--header-height);
 }
 
 /*  ===  Mini-Bootstrap  ===  */
@@ -131,12 +131,10 @@ body {
 .btn:active {
   background-color: #444;
 }
-
 .btn.quad-btn {
   padding: unset;
   width: 32px;
 }
-
 .btn.circle-btn {
   padding: unset;
   width: 32px;
