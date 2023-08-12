@@ -2,20 +2,24 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Wepic R-18 (layout)</title>
+  <title>PeekWebPics</title>
   <meta name="theme-color" content="#000">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-  <script src='https://npmcdn.com/isotope-masonry-horizontal@2.0.1/masonry-horizontal.js'></script>
-  <script src='https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js'         onerror="document.write(`<script src='./assets/js/libs/jquery-3.7.0.min.js'>\x3C/script>`)"></script>
+  <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"               onerror="document.write(`<script src='./assets/js/libs/isotope-3.0.6.pkgd.min.js'>\x3C/script>`)"></script>
+  <script src="https://npmcdn.com/isotope-masonry-horizontal@2.0.1/masonry-horizontal.js" onerror="document.write(`<script src='./assets/js/libs/masonry-horizontal-2.0.1.js'>\x3C/script>`)"></script>
+  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"                 onerror="document.write(`<script src='./assets/js/libs/imagesloaded-4.1.4.pkgd.min.js'>\x3C/script>`)"></script>
   <script src="./assets/js/style.js" defer></script>
-  <link rel="icon" href="./assets/img/icon.png">
+  <link rel="icon" href="./assets/img/favicon/icon.png">
 </head>
 <body style="background:#000">
+
+  <!--  ===  Шапка  ===  -->
   <header>
     <div class="header_inner d-flex ai-cen">
+
+      <!--    =  Кнопка меню  =    -->
       <div class="menu-btn-place">
         <button class="btn quad-btn menu-btn" title="Toggle menu" onclick="toggleSidebar()">
           <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
@@ -23,12 +27,16 @@
           </svg>
         </button>
       </div>
+
+      <!--    =  Путь  =    -->
       <div class="path-line">
         <span class="section"><a href="" class="btn">Home</a></span>
         <span class="section"><a href="" class="btn">ATyans</a></span>
         <span class="section"><a href="" class="btn">Port</a></span>
-        <button class="btn circle-btn folder-select-btn">&gt;</button>
+        <button class="btn circle-btn folder-select-btn" title="Show subfolders">&gt;</button>
       </div>
+
+      <!--    =  Сортировка  =    -->
       <div class="sort-section">
         <button 
           class="btn quad-btn change-direction-btn down" 
@@ -43,29 +51,143 @@
           <option>Width</option>
         </select>
       </div>
+
     </div>
   </header>
+
+  <!--  ===  Основа  ===  -->
   <main class="grid-item--blur">
+
+    <!--   ==  Боковое меню  ==   -->
     <div class="sidebar_outer">
       <div class="sidebar">
+
+        <!--    =  Быстрые кнопки  =    -->
         <div class="btn-place">
           <button class="btn blur-cards-btn"    title="Blur/Unblur cards" onclick="blurCards()"   >Blur    </button>
           <button class="btn layout-change-btn" title="Change layout"     onclick="changeLayout()">Vertical</button>
           <button class="btn pin-sidebar-btn"   title="Pin/Unpin sidebar" onclick="pinSidebar()"  >Pin     </button>
         </div>
+
+        <!--    =  Дерево  =    -->
         <div class="tree">
+          <label class="tree-item">
+  
+            <input type="checkbox" checked>
+            <span class="label">ATyans</span>
+            <div class="branches">
+              <label class="tree-item">
+
+                <input type="checkbox" checked>
+                <span class="label">Port</span>
+                <div class="branches"></div>
+              </label>
+              <label class="tree-item">
+
+                <input type="checkbox">
+                <span class="label">Quad</span>
+                <div class="branches"></div>
+              </label>
+              <label class="tree-item">
+
+                <input type="checkbox">
+                <span class="label">Wall</span>
+                <div class="branches"></div>
+              </label>
+              <label class="tree-item">
+
+                <input type="checkbox">
+                <span class="label">Оth.Alb</span>
+                <div class="branches">
+                  <label class="tree-item">
+    
+                    <input type="checkbox">
+                    <span class="label">Oth1.mem</span>
+                    <div class="branches"></div>
+                  </label>
+                  <label class="tree-item">
+    
+                    <input type="checkbox">
+                    <span class="label">Oth2.Translucent</span>
+                    <div class="branches"></div>
+                  </label>
+                  <label class="tree-item">
+    
+                    <input type="checkbox">
+                    <span class="label">Oth3.SD-res</span>
+                    <div class="branches"></div>
+                  </label>
+                </div>
+              </label>
+            </div>
+          </label>
+          <label class="tree-item">
+  
+            <input type="checkbox">
+            <span class="label">R-18</span>
+            <div class="branches">
+              <label class="tree-item">
+
+                <input type="checkbox">
+                <span class="label">#pic</span>
+                <div class="branches"></div>
+              </label>
+              <label class="tree-item">
+
+                <input type="checkbox">
+                <span class="label">ARTISTS</span>
+                <div class="branches">
+                  <label class="tree-item">
+    
+                    <input type="checkbox">
+                    <span class="label">ETT</span>
+                    <div class="branches"></div>
+                  </label>
+                  <label class="tree-item">
+    
+                    <input type="checkbox">
+                    <span class="label">feint721 (Feint Heart)</span>
+                    <div class="branches"></div>
+                  </label>
+                  <label class="tree-item">
+    
+                    <input type="checkbox">
+                    <span class="label">houkisei (Houk1se1)</span>
+                    <div class="branches"></div>
+                  </label>
+                  <label class="tree-item">
+    
+                    <input type="checkbox">
+                    <span class="label">Fukuro (Fukuro袋子)</span>
+                    <div class="branches"></div>
+                  </label>
+                </div>
+              </label>
+              <label class="tree-item">
+
+                <input type="checkbox">
+                <span class="label">Oth.</span>
+                <div class="branches"></div>
+              </label>
+            </div>
+          </label>
         </div>
+
+        <!--    =  Подвал  =    -->
         <footer>
           <div class="copyright">
-            <img src="./assets/img/icon.svg" alt="Wepic" height="24" width="24">
+            <img src="./assets/img/favicon/icon.svg" alt="Wepic" height="24" width="24">
             <p>© 2023 Zamelane</p>
           </div>
           <div class="linkplace">
             <a href="https://github.com/Zamelane/Wepic">Github</a>
           </div>
         </footer>
+
       </div>
     </div>
+
+    <!--   ==  Карточки  ==   -->
     <div class="grid_outer">
       <div class="grid">
         <div class="grid-item"><img src="thumbs/w400/01.jpg" alt="w400-01.jpg"></div>
@@ -169,6 +291,8 @@
         <div class="grid-item"><img src="thumbs/w400/99.jpg" alt="w400-99.jpg"></div>
       </div>
     </div>
+
   </main>
+
 </body>
 </html>

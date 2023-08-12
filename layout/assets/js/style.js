@@ -1,6 +1,41 @@
 let $grid = $('.grid');
 let $main = $( 'main');
 
+
+// Восстановление бокового меню в исходное состояние 
+if (+localStorage.getItem( 'pinSidebar') 
+&&  +localStorage.getItem('showSidebar')) toggleSidebar();
+if (+localStorage.getItem( 'pinSidebar'))    pinSidebar();
+// Восстановление раскладки/макета карточек-картинок в исходное состояние
+if (+localStorage.getItem('horizontalLayout')) setHorizontalLayout();
+else                                             setVerticalLayout();
+// Восстановление блюра карточек в исходное состояние 
+if (localStorage.getItem('blurCards') == 1) { 
+  $main.addClass   ('grid-item--blur'  ); 
+  $main.removeClass('grid-item--blur-2'); 
+  $('.blur-cards-btn').html('Blur x2');
+} else 
+if (localStorage.getItem('blurCards') == 2) { 
+  $main.addClass   ('grid-item--blur-2'); 
+  $main.removeClass('grid-item--blur'  ); 
+  $('.blur-cards-btn').html('Unblur');
+} else 
+if (localStorage.getItem('blurCards') == 0) {
+  $main.removeClass('grid-item--blur'  ); 
+  $main.removeClass('grid-item--blur-2'); 
+  $('.blur-cards-btn').html('Blur');
+} else {
+  if ($main.hasClass('grid-item--blur')) {
+    $('.blur-cards-btn').html('Blur x2')
+  } else
+  if ($main.hasClass('grid-item--blur-2')) {
+    $('.blur-cards-btn').html('Unblur')
+  } else {
+    $('.blur-cards-btn').html('Blur')
+  }
+}
+
+
 // Переключание видимости бокового меню
 function toggleSidebar() { 
   $main.toggleClass('sidebar--open');
@@ -19,14 +54,15 @@ function pinSidebar() {
 
   setTimeout(updateGrid, 125);
 }
-// Переключение раскладки карточек
+
+// Переключение раскладки/макета карточек-картинок
 function changeLayout() {
   $main.hasClass('grid--horizontal') 
   ?   setVerticalLayout()
   : setHorizontalLayout();
 }
+// Установка горизонтальной раскладки/макета карточек-картинок
 function setHorizontalLayout() {
-  console.log('Hor')
   $main.addClass('grid--horizontal');
   localStorage.setItem('horizontalLayout', 1)
   $('.layout-change-btn').html('Vertical')
@@ -43,17 +79,17 @@ function setHorizontalLayout() {
     }
   });
 
-  let elements = document.getElementsByClassName('grid-item')
+  let elements = $('.grid-item');
   for (let i = 0; i < elements.length; i++) {
-    let i_element = elements[i].getElementsByTagName('img')
-    let name = i_element[0].src.split('/')
-    i_element[0].src = 'thumbs/w400/' + name[name.length - 1]
+    let i_element = elements[i].getElementsByTagName('img');
+    let name = i_element[0].src.split('/');
+    i_element[0].src = 'thumbs/h400/' + name[name.length - 1];
   }
 
   updateGrid();
 }
+// Установка вертикальной раскладки/макета карточек-картинок
 function setVerticalLayout() {
-  console.log('Vert')
   $main.removeClass('grid--horizontal');
   localStorage.setItem('horizontalLayout', 0)
   $('.layout-change-btn').html('Horizontal');
@@ -68,18 +104,24 @@ function setVerticalLayout() {
     }
   });
 
-  let elements = document.getElementsByClassName('grid-item')
+  let elements = $('.grid-item');
   for (let i = 0; i < elements.length; i++) {
-    let i_element = elements[i].getElementsByTagName('img')
-    let name = i_element[0].src.split('/')
-    i_element[0].src = 'thumbs/h400/' + name[name.length - 1]
+    let i_element = elements[i].getElementsByTagName('img');
+    let name = i_element[0].src.split('/');
+    i_element[0].src = 'thumbs/w400/' + name[name.length - 1];
   }
   
   updateGrid();
 }
+// Обновление раскладки/макета карточек-картинок
 function updateGrid() {
   $grid.isotope('layout');
 }
+// Если (какое-то?) изображение загрузилось, то обновляется макет кирпичного grid'а
+$grid.imagesLoaded().progress(updateGrid);
+// Обновление раскладки при изменении размеров окна
+$('.grid_outer').resize(updateGrid);
+
 // Переключение блюра карточек
 function blurCards() {
   if ($main.hasClass('grid-item--blur')) 
@@ -103,54 +145,13 @@ function blurCards() {
 }
 
 
-// Восстановление бокового меню в исходное состояние 
-if (+localStorage.getItem( 'pinSidebar') 
-&&  +localStorage.getItem('showSidebar')) toggleSidebar();
-if (+localStorage.getItem( 'pinSidebar'))    pinSidebar();
-// Восстановление раскладки карточек в исходное состояние
-if (+localStorage.getItem('horizontalLayout')) setHorizontalLayout();
-else                                             setVerticalLayout();
-// Восстановление блюра карточек в исходное состояние 
-if ( localStorage.getItem('blurCards') == 1) { 
-  $main.addClass   ('grid-item--blur'  ); 
-  $main.removeClass('grid-item--blur-2'); 
-  $('.blur-cards-btn').html('Blur x2');
-} else 
-if ( localStorage.getItem('blurCards') == 2) { 
-  $main.addClass   ('grid-item--blur-2'); 
-  $main.removeClass('grid-item--blur'  ); 
-  $('.blur-cards-btn').html('Unblur');
-} else 
-if ( localStorage.getItem('blurCards') == 0) {
-  $main.removeClass('grid-item--blur'  ); 
-  $main.removeClass('grid-item--blur-2'); 
-  $('.blur-cards-btn').html('Blur');
-} else {
-  if ($main.hasClass('grid-item--blur')) {
-    $('.blur-cards-btn').html('Blur x2')
-  } else
-  if ($main.hasClass('grid-item--blur-2')) {
-    $('.blur-cards-btn').html('Unblur')
-  } else {
-    $('.blur-cards-btn').html('Blur')
-  }
-}
-
-
-// Если (какое-то?) изображение загрузилось, то обновляется макет кирпичного grid'а
-$grid.imagesLoaded().progress(updateGrid);
-
-// Обновление раскладки при изменении размеров окна
-$('window').resize(updateGrid);
-
-
 // Горизонтальный скролл, глючит при сильной нагрузки
 function horizontalWheel(container) {
   /** Max `scrollLeft` value */
   let scrollWidth;
 
   /** Desired scroll distance per animation frame */
-  let getScrollStep = () => scrollWidth / 500 /* ADJUST TO YOUR WISH */ ;
+  let getScrollStep = () => scrollWidth / 2000 /* ADJUST TO YOUR WISH */ ;
 
   /** Target value for `scrollLeft` */
   let targetLeft;
