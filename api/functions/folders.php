@@ -22,15 +22,15 @@ function getFolder() {
     if ($include_files) $return['data'][ 'files' ] = [];
 
     foreach($directories as $index => $value) {
-        $this_folder_path = $global_path . '\\' . $result_path . '\\' . $value;                     // Итоговый путь до папки
-        if ($value != '.' && $value != '..') {                                               // Исключаем точки сканирования...
-            if (is_dir($this_folder_path)) {                                                 // Проверяем существование папки
+        $this_folder_path = $global_path . ($result_path != '' ? '' : '\\') . $result_path . ($result_path == '' ? '' : '\\') . $value; // Итоговый путь до папки
+        if ($value != '.' && $value != '..') {                                                              // Исключаем точки сканирования...
+            if (is_dir($this_folder_path)) {                                                                // Проверяем существование папки
                 $this_index = md5($this_folder_path);
-                $index_path = $path . '\\index\\' . $this_index;                             // Проверяем, существует ли индекс
-                if (!file_exists($index_path)) {                                             // Если нет, то создаём
+                $index_path = $path . '\\index\\' . $this_index;                                            // Проверяем, существует ли индекс
+                if (!file_exists($index_path)) {                                                            // Если нет, то создаём
                     file_put_contents($index_path, $result_path . '\\' . $value);
                 }
-                array_push($return['data']['folders'], [                                     // Записываем в выдачу
+                array_push($return['data']['folders'], [                                                    // Записываем в выдачу
                     'name'  => $value,
                     'path'  => $result_path . '\\' . $value,
                     'index' => $this_index
