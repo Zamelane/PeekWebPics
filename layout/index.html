@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>PeekWebPics</title>
-  <meta name="theme-color" content="#000">
+  <meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000" media="(prefers-color-scheme:  dark)">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js'         onerror="document.write(`<script src='./assets/js/libs/jquery-3.7.0.min.js'>\x3C/script>`)"></script>
@@ -13,7 +14,7 @@
   <script src="./assets/js/style.js" defer></script>
   <link rel="icon" href="./assets/img/favicon/icon.png">
 </head>
-<body style="background:#000">
+<body>
 
   <!--  ===  Шапка  ===  -->
   <header>
@@ -56,7 +57,7 @@
   </header>
 
   <!--  ===  Основа  ===  -->
-  <main class="grid-item--blur">
+  <main>
 
     <!--   ==  Боковое меню  ==   -->
     <div class="sidebar_outer">
@@ -64,9 +65,10 @@
 
         <!--    =  Быстрые кнопки  =    -->
         <div class="btn-place">
-          <button class="btn blur-cards-btn"    title="Blur/Unblur cards" onclick="blurCards()"   >Blur    </button>
+          <button class="btn change-theme-btn"  title="Change theme"      onclick="changeTheme()" >Auto    </button>
+     <!-- <button class="btn blur-cards-btn"    title="Blur/Unblur cards" onclick="blurCards()"   >Blur    </button> -->
           <button class="btn layout-change-btn" title="Change layout"     onclick="changeLayout()">Vertical</button>
-          <button class="btn pin-sidebar-btn"   title="Pin/Unpin sidebar" onclick="pinSidebar()"  >Pin     </button>
+          <button class="btn pin-sidebar-btn"   title="Pin/Unpin sidebar" onclick="pinSidebar()"  >Unpinned</button>
         </div>
 
         <!--    =  Дерево  =    -->
