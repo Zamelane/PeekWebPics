@@ -55,7 +55,7 @@ function checkIndex($checkIndex, $folder) {
     if (file_exists($checkIndex) && !is_dir($checkIndex)) {                             // Если индекс для файла есть (каталог существует)
         return file_get_contents($checkIndex);                                          // Извлекаем путь
     } else if ($folder == 'home') {                                                     // Или если запрашивается корневая дирректория
-        return '';                                                                    // То записываем по дефолту
+        return '';                                                                      // То записываем по дефолту
     } else {                                                                            // В ином случае выбрасываем ошибку
         returnBody(getBody(false, '2', 'Указанный индекс не найден!'));
         exit();
