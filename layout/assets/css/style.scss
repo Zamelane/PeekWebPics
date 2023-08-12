@@ -221,8 +221,6 @@ body {
     }
   }
 
-
-
   /*  = =  Боковое меню  = =  */
 
   .sidebar_outer {
@@ -231,11 +229,13 @@ body {
     width: var(--sidebar-width);
     z-index: 50;
     top: 0;
-    padding-top: var(--header-height);
     background: linear-gradient(90deg, var(--c-b0), var(--c-b0a));
     backdrop-filter: blur(var(--div-blur));
     overflow-x: hidden;
     left: calc(var(--sidebar-width) * -1);
+    padding-top: var(--header-height);
+    box-sizing: border-box;
+    height: 100%;
     opacity: 0;
     transition: left 0.1s, opacity 0.1s;
     @media (max-width: 450px) {
@@ -246,7 +246,13 @@ body {
   }
 
   .sidebar {
+    box-sizing: border-box;
     padding: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    gap: 16px;
+    height: 100%;
     // Быстрые кнопки
     .btn-place {
       display: grid;
@@ -260,7 +266,6 @@ body {
     }
     // Дерево
     .tree {
-      padding: 16px 0;
       &-item {
         cursor: pointer;
         display: block;
@@ -313,7 +318,7 @@ body {
     }
     // Подвал
     footer {
-      padding: 24px 8px;
+      margin-top: auto;
       .copyright {
         margin-bottom: 16px;
         display: flex;
