@@ -21,7 +21,7 @@ function returnBody($arr) {
 }
 
 function getConfig() {
-    $config = json_decode(file_get_contents($path . '\config.json'), true);                 // Загружаем конфиг
+    $config = json_decode(file_get_contents('config.json'), true);                 // Загружаем конфиг
     return $config;
 }
 ?>
