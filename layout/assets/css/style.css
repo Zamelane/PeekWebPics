@@ -418,7 +418,7 @@ body.grid-item--blur-2 .grid .grid-item:after {
   border-radius: calc(var(--border-r) * 2);
 }
 body .grid_outer {
-  transition: margin 0.1s;
+  transition: margin 0.1s, left 0.1s;
   padding: var(--header-height) var(--cards-gap) 0;
   overflow-x: hidden;
 }
@@ -477,10 +477,11 @@ body.grid--horizontal .grid_outer {
   margin: 0;
   overflow-x: unset;
   overflow-y: auto;
+  padding: var(--header-height) 0 0 var(--cards-gap);
 }
 @media (max-width: 824px) {
   body.grid--horizontal .grid_outer {
-    padding: var(--header-height) var(--cards-gap) 0;
+    padding: var(--header-height) 0 0 var(--cards-gap);
     margin-left: unset;
   }
 }
