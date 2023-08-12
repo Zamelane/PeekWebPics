@@ -5,7 +5,7 @@ let $html = $('html')
 // Восстановление темы
 if      (localStorage.getItem('setTheme') == 1)  setDarkTheme();
 else if (localStorage.getItem('setTheme') == 2) setLightTheme();
-else                                           setAutoTheme();
+else                                             setAutoTheme();
 // Восстановление бокового меню в исходное состояние 
 if (+localStorage.getItem( 'pinSidebar') 
 &&  +localStorage.getItem('showSidebar')) toggleSidebar();
@@ -48,17 +48,23 @@ function changeTheme() {
   else                                             setAutoTheme();
 }
 function setDarkTheme() {
+  $('head').append('<meta name="theme-color" content="#000">');
   localStorage.setItem('setTheme', 1);
   $html.addClass('dark-theme');
   $('.change-theme-btn').html('Dark')
 }
 function setLightTheme() {
+  $('[name="theme-color"]').remove();
+  $('head').append('<meta name="theme-color" content="#fff">');
   localStorage.setItem('setTheme', 2);
   $html.removeClass( 'dark-theme');
   $html   .addClass('light-theme');
   $('.change-theme-btn').html('Light')
 }
 function setAutoTheme() {
+  $('[name="theme-color"]').remove();
+  $('head').append('<meta name="theme-color" content="#fff" media="(prefers-color-scheme: light)">');
+  $('head').append('<meta name="theme-color" content="#000" media="(prefers-color-scheme:  dark)">');
   localStorage.setItem('setTheme', 0);
   $html.removeClass('light-theme');
   $('.change-theme-btn').html('Auto')
