@@ -471,5 +471,22 @@ body {
         }
       }
     }
+    
+  &.sidebar--open.sidebar--pin .grid_outer {
+    @media (max-width: 824px) {
+      .grid-item {
+        width: unset;
+        img {
+          border-radius: calc(var(--border-r) * 4);
+        }
+      }
+    }
+    @media (max-width: 716px) {
+      margin-left: unset;
+      .grid-item {
+        width: unset;
+      }
+    }
+  }
   }
 }
