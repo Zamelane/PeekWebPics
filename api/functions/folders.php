@@ -12,7 +12,7 @@ function getFolder() {
     $result_path        = checkIndex($index_path_check, $folder);                                  //    | Если индекс существует, то записываем
     $global_path        = $config['path'];                                                        //     | Итоговый путь для сканирования
     $include_files      = getPost('includeFiles', 'no') == 'yes' ? true : false;                 //      | Включать ли в выдаче файлы ?
-    $resolution         = checkResolution(getPost('resolution', 'no'));                         //       | Размер отдаваемых превьюшек
+    $resolution         = checkResolution(getPost('resolution', 'no'), $config);                //       | Размер отдаваемых превьюшек
     $directories        = scandir($global_path . '\\' . $result_path);                         //        | Сканируем дирректорию
     $return             = getBody(true);                                                      //         | Подготавливаем шаблон успешного ответа
     $page               = getPost('page', '1');                                              //          | Номер страницы для отображения
@@ -80,14 +80,10 @@ function checkIndex($checkIndex, $folder) {
         exit();
     }
 }
-function checkResolution($resolution) {
-    switch ($resolution) {
-        case "w400" : return 400 ;
-        case "w600" : return 600 ;
-        case "w800" : return 800 ;
-        case "w1000": return 1000;
-        case "w1200": return 1200;
-        default     : return 0   ;
+function checkResolution($resolution, $config) {
+    foreach($config['resolutions'] as $index => $value) {
+        if ($resolution == $index) return $value;
     }
+    return 0;
 }
 ?>
