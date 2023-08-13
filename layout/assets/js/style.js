@@ -1,6 +1,6 @@
 let $grid = $('.grid');
 let $body = $('html > body');
-let $html = $('html')
+let $html = $('html');
 
 // Восстановление темы
 if      (localStorage.getItem('setTheme') == 1)  setDarkTheme();
@@ -219,5 +219,5 @@ function horizontalWheel(container) {
     requestAnimationFrame(scrollLeft);
   });
 }
-let list = document.querySelector('html');
-horizontalWheel(list);
+let $grid_outer = document.querySelector('.grid_outer');
+horizontalWheel($grid_outer);

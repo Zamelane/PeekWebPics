@@ -57,15 +57,13 @@
   --sidebar-width: 300px;
   --div-blur: 24px;
   --card-blur: 12px;
-}
-
-body {
-  background: var(--c-b0);
-  color: var(--c-t0);
+  
   user-select: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
-  padding-top: var(--header-height);
+
+  background: var(--c-b0);
+  color: var(--c-t0);
 }
 
 /*  ===  Mini-Bootstrap  ===  */
@@ -94,8 +92,8 @@ body {
 
 // Кнопка
 .btn {
-  text-decoration: unset;
   cursor: pointer;
+  text-decoration: unset;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -221,32 +219,37 @@ body {
     }
   }
 
-
-
   /*  = =  Боковое меню  = =  */
 
   .sidebar_outer {
-    height: 100vh;
-    position: fixed;
-    width: var(--sidebar-width);
     z-index: 50;
+    position: fixed;
     top: 0;
-    padding-top: var(--header-height);
+    left: calc(var(--sidebar-width) * -1);
+    width: var(--sidebar-width);
+    height: 100%;
     background: linear-gradient(90deg, var(--c-b0), var(--c-b0a));
     backdrop-filter: blur(var(--div-blur));
     overflow-x: hidden;
-    left: calc(var(--sidebar-width) * -1);
+    padding-top: var(--header-height);
+    box-sizing: border-box;
     opacity: 0;
     transition: left 0.1s, opacity 0.1s;
     @media (max-width: 450px) {
-      width: 100vw;
       left: -100%;
+      width: 100vw;
       background: var(--c-b0a);
     }
   }
 
   .sidebar {
+    box-sizing: border-box;
     padding: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    gap: 16px;
+    height: 100%;
     // Быстрые кнопки
     .btn-place {
       display: grid;
@@ -260,7 +263,6 @@ body {
     }
     // Дерево
     .tree {
-      padding: 16px 0;
       &-item {
         cursor: pointer;
         display: block;
@@ -313,9 +315,9 @@ body {
     }
     // Подвал
     footer {
-      padding: 24px 8px;
+      margin-top: auto;
       .copyright {
-        margin-bottom: 16px;
+        margin-bottom: 8px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -347,6 +349,7 @@ body {
   // Логика бокового меню
   &.sidebar--open {
     @media (max-width: 450px) {
+      // Скрытие полос прокрутки в полноэкранном меню
       overflow: hidden; 
     } 
     .sidebar_outer {
@@ -382,14 +385,15 @@ body {
   /*  = =  Кладка картинок-карточек (вертикально)  = =  */
 
   .grid_outer {
-    padding: 0 var(--cards-gap);
+    transition: margin 0.1s, left 0.1s;
+    padding: var(--header-height) var(--cards-gap) 0;
     overflow-x: hidden;
     @media (max-width: 824px) {
-      padding: 0;
+      padding: var(--header-height) 0 0;
     }
   }
   .grid {
-    margin:  0 auto;
+    margin: 0 auto;
     &-item {
       margin-bottom: calc(var(--cards-gap) - 3px);
       width: var(--card-width);
@@ -429,11 +433,17 @@ body {
 
   &.grid--horizontal {
     .grid_outer {
-      height: calc(100vh - var(--header-height));
+      position: fixed;
+      top: 0;
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
       margin: 0;
       overflow-x: unset; 
+      overflow-y: auto;
+      padding: var(--header-height) 0 0 var(--cards-gap);
       @media (max-width: 824px) {
-        padding:     unset;
+        padding: var(--header-height) 0 0 var(--cards-gap);
         margin-left: unset;
       }
     }
@@ -449,7 +459,7 @@ body {
           width: unset;
         }
         @media (max-height: 872px) {
-          height: calc(100vh - var(--cards-gap) - var(--header-height));
+          height: calc(100% - var(--cards-gap));
         }
         img {
           @media (max-width: 824px) {
