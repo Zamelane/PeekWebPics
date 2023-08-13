@@ -1,7 +1,7 @@
 {
-    "path": "C:\\myfiles\\Картинки",
+    "path"          : "C:\\myfiles\\Картинки",
     "elementsOfPage": "2",
-    "resolutions": {
+    "resolutions"   : {
         "w400"  : 400 ,
         "w600"  : 600 ,
         "w800"  : 800 ,
