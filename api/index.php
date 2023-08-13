@@ -11,7 +11,7 @@ switch($method) {
     case 'getResolutions':
         $response = getBody(true);
         $config   = getConfig();                                                      // Загружаем конфиг
-        $response['data']['resolutions'] = [];                                        // Обявляем ответ
+        $response['data']['resolutions'] = [];                                        // Объявляем ответ
 
         foreach($config['resolutions'] as $index => $value) {
             $response['data']['resolutions'][$index] = $value;
