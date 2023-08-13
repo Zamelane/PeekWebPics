@@ -514,4 +514,20 @@ body.grid--horizontal .grid-item {
   body.grid--horizontal .grid-item img {
     border-radius: calc(var(--border-r) * 4);
   }
+}
+@media (max-width: 824px) {
+  body.grid--horizontal.sidebar--open.sidebar--pin .grid_outer .grid-item {
+    width: unset;
+  }
+  body.grid--horizontal.sidebar--open.sidebar--pin .grid_outer .grid-item img {
+    border-radius: calc(var(--border-r) * 4);
+  }
+}
+@media (max-width: 716px) {
+  body.grid--horizontal.sidebar--open.sidebar--pin .grid_outer {
+    margin-left: unset;
+  }
+  body.grid--horizontal.sidebar--open.sidebar--pin .grid_outer .grid-item {
+    width: unset;
+  }
 }/*# sourceMappingURL=style.css.map */
