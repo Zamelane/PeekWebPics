@@ -1,5 +1,8 @@
 {
     "path"          : "C:\\myfiles\\Картинки",
+    "path_server"   : "",
+    "server_name"   : "PeekWebPics",
+    "protocol"      : "http",
     "elementsOfPage": "2",
     "resolutions"   : {
         "w400"  : 400 ,

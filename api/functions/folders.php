@@ -58,7 +58,7 @@ function getFolder() {
                                 $image->save($cache_path);
                             }
                             $push_data['resolution'] = 'w'.$resolution;
-                            $push_data['w'.$resolution] = 'http://' . $_SERVER['SERVER_NAME'] . '/api/cache/w' . $resolution. '/' . $name;
+                            $push_data['w'.$resolution] = $config['protocol'] . '://' . $config['server_name'] . ($config['path_server'] == '' ? '' : '/') . $config['path_server'] . '/api/cache/w' . $resolution. '/' . $name;
                         }
                         
                         array_push($return['data']['files'], $push_data);                                       // Пушим ответ
