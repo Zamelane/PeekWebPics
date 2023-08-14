@@ -407,7 +407,7 @@ body {
         object-fit: cover;
         border-radius: calc(var(--border-r) * 2);
         @media (max-width: 824px) {
-          border-radius: calc(var(--border-r) * 4);
+          border-radius: calc(var(--border-r) * 4) !important;
         }
       }
     }
@@ -432,6 +432,22 @@ body {
   /*  = =  Кладка картинок-карточек (горизонтально)  = =  */
 
   &.grid--horizontal {
+    &.sidebar--open.sidebar--pin .grid_outer {
+      @media (max-width: 824px) {
+        .grid-item {
+          width: unset;
+          img {
+            border-radius: calc(var(--border-r) * 2);
+          }
+        }
+      }
+      @media (max-width: 716px) {
+        margin-left: unset;
+        .grid-item {
+          width: unset;
+        }
+      }
+    }
     .grid_outer {
       position: fixed;
       top: 0;
@@ -440,11 +456,14 @@ body {
       width: 100%;
       margin: 0;
       overflow-x: unset; 
-      overflow-y: auto;
-      padding: var(--header-height) 0 0 var(--cards-gap);
+      overflow-y: hidden;
+      padding: var(--header-height) 0 var(--cards-gap) var(--cards-gap);
       @media (max-width: 824px) {
-        padding: var(--header-height) 0 0 var(--cards-gap);
+        padding: var(--header-height) 0 var(--cards-gap) var(--cards-gap);
         margin-left: unset;
+      }
+      @media (max-height: 864px) {
+        padding: var(--header-height) 0 0 var(--cards-gap);
       }
     }
     .grid {
@@ -458,35 +477,18 @@ body {
         @media (max-width: 824px) {
           width: unset;
         }
-        @media (max-height: 872px) {
+        @media (max-height: 864px) {
           height: calc(100% - var(--cards-gap));
         }
         img {
           @media (max-width: 824px) {
-            border-radius: unset;
+            border-radius: calc(var(--border-r) * 2);
           }
-          @media (max-height: 872px) {
+          @media (max-height: 864px) {
             border-radius: calc(var(--border-r) * 4);
           }
         }
       }
     }
-    
-  &.sidebar--open.sidebar--pin .grid_outer {
-    @media (max-width: 824px) {
-      .grid-item {
-        width: unset;
-        img {
-          border-radius: calc(var(--border-r) * 4);
-        }
-      }
-    }
-    @media (max-width: 716px) {
-      margin-left: unset;
-      .grid-item {
-        width: unset;
-      }
-    }
-  }
   }
 }
