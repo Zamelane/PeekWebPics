@@ -2,8 +2,8 @@ const $html = $( 'html');
 const $grid = $('.grid');
 const $body = $('html > body');
 
-const debouncedUpdateGrid = debounce(updateGrid, 125)
-const throttledUpdateGrid = throttle(updateGrid, 250)
+const debouncedUpdateGrid = debounce(updateGrid, 125);
+const throttledUpdateGrid = throttle(updateGrid, 125);
 
 function debounce(callee, delay) {
   return function perform(...args) {
@@ -23,17 +23,20 @@ function throttle(callee, delay) {
 
     timer = setTimeout(() => {
       callee(...args)
+
       clearTimeout(timer)
       timer = null
+
+      callee(...args) // Почему-то второй вызов помогает горизонтальной кладке
     }, delay)
   }
 }
 
 
 // Восстановление бокового меню в исходное состояние 
+if (+localStorage.getItem('showSidebar') 
+&&  +localStorage.getItem( 'pinSidebar')) toggleSidebar();
 if (+localStorage.getItem( 'pinSidebar'))    pinSidebar();
-if (+localStorage.getItem( 'pinSidebar') 
-&&  +localStorage.getItem('showSidebar')) toggleSidebar();
 // Восстановление темы
 if      (localStorage.getItem('setTheme') == 1)  setDarkTheme();
 else if (localStorage.getItem('setTheme') == 2) setLightTheme();
@@ -146,15 +149,18 @@ function setVerticalLayout() {
   
   updateGrid();
 }
+
 // Обновление раскладки/макета карточек-картинок
 function updateGrid() {
   console.log('Do updateGrid()')
   $grid.isotope('layout');
 }
+
 // Если (какое-то?) изображение загрузилось, то обновляется макет кирпичного grid'а
-$grid.imagesLoaded().progress(updateGrid);
+$grid.imagesLoaded().progress(() => {debouncedUpdateGrid(); console.log('Need updateGrid')});
+
 // Обновление раскладки при изменении размеров
-$('.grid_outer').resize(debouncedUpdateGrid());
+$('.grid_outer').resize(debouncedUpdateGrid);
 
 const resizer = document.querySelector('.resizer');
 const html    = document.querySelector(':root'   );
@@ -202,7 +208,7 @@ function horizontalWheel(container) {
     targetLeft = Math.min(scrollWidth, Math.max(0, container.scrollLeft + e.deltaY));
     
     requestAnimationFrame(scrollLeft);
-  });
+  }, {passive: true});
 }
 let $grid_outer = document.querySelector('.grid_outer');
 horizontalWheel($grid_outer);

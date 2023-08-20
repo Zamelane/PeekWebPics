@@ -9,16 +9,21 @@
     "orientation": "any",
     "icons": [
       {
-        "src": "./assets/img/favicon/icon.png",
+        "src": "./img/favicon/icon.svg",
+        "type": "image/svg"
+      },
+      {
+        "src": "./img/favicon/icon.png",
         "sizes": "512x512",
         "type": "image/png"
       }
     ],
     "screenshots": [
       {
-        "src": "../image/README/Demo2.png",
+        "src": "../../image/README/Demo2.png",
         "sizes": "830x943",
         "type": "image/png"
       }
     ]
   }
+  
