@@ -31,9 +31,9 @@ function throttle(callee, delay) {
 
 
 // Восстановление бокового меню в исходное состояние 
+if (+localStorage.getItem( 'pinSidebar'))    pinSidebar();
 if (+localStorage.getItem( 'pinSidebar') 
 &&  +localStorage.getItem('showSidebar')) toggleSidebar();
-if (+localStorage.getItem( 'pinSidebar'))    pinSidebar();
 // Восстановление темы
 if      (localStorage.getItem('setTheme') == 1)  setDarkTheme();
 else if (localStorage.getItem('setTheme') == 2) setLightTheme();
@@ -152,7 +152,7 @@ function updateGrid() {
   $grid.isotope('layout');
 }
 // Если (какое-то?) изображение загрузилось, то обновляется макет кирпичного grid'а
-$grid.imagesLoaded().progress(debouncedUpdateGrid);
+$grid.imagesLoaded().progress(updateGrid);
 // Обновление раскладки при изменении размеров
 $('.grid_outer').resize(debouncedUpdateGrid());
 

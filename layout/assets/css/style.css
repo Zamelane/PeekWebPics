@@ -351,7 +351,7 @@ body .sidebar_outer .resizer:hover .bar {
   background: var(--c-t0);
 }
 body .sidebar_outer .resizer:active .bar {
-  width: 7px;
+  height: 50%;
 }
 body.grid-item--blur .grid .grid-item:after {
   content: "";

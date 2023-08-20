@@ -1,0 +1,24 @@
+{
+    "name": "PeekWebPics",
+    "description": "Image board with easily view, navigate and share through a collection of images",
+    "short_name": "Wepic",
+    "lang": "en",
+    "theme_color": "#000",
+    "display": "standalone",
+    "background_color": "#000",
+    "orientation": "any",
+    "icons": [
+      {
+        "src": "./assets/img/favicon/icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "screenshots": [
+      {
+        "src": "../image/README/Demo2.png",
+        "sizes": "830x943",
+        "type": "image/png"
+      }
+    ]
+  }
