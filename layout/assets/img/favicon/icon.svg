@@ -3,69 +3,95 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
 <style type="text/css">
+	.st0{display:none;clip-path:url(#SVGID_00000064333687614944991690000002032317101305497253_);}
+	.st1{display:inline;}
 	
-		.st0{clip-path:url(#SVGID_00000104670680442630060700000009482997416226893746_);fill:#29ABE2;stroke:#00A99D;stroke-miterlimit:10;}
-	.st1{fill:none;stroke:#29ABE2;stroke-miterlimit:10;}
-	.st2{opacity:0.5;}
-	.st3{clip-path:url(#SVGID_00000137112729378238678770000001354483128669288860_);fill:none;stroke:#000000;stroke-miterlimit:10;}
+		.st2{clip-path:url(#SVGID_00000064333687614944991690000002032317101305497253_);fill:url(#SVGID_00000067211273345085606590000012630638629339666064_);}
+	.st3{opacity:0.5;}
+	.st4{clip-path:url(#SVGID_00000090287911890645011110000017655872455916673418_);fill:none;stroke:#F2F2F2;stroke-miterlimit:10;}
 	
-		.st4{clip-path:url(#SVGID_00000103260717910424736250000012034473739422609283_);fill:#333333;stroke:#333333;stroke-miterlimit:10;}
+		.st5{display:none;clip-path:url(#SVGID_00000090287911890645011110000017655872455916673418_);fill:none;stroke:#F2F2F2;stroke-miterlimit:10;}
 	
-		.st5{clip-path:url(#SVGID_00000103260717910424736250000012034473739422609283_);fill:#4D4D4D;stroke:#4D4D4D;stroke-miterlimit:10;}
-	.st6{fill:#FBB03B;stroke:#FBB03B;stroke-miterlimit:10;}
+		.st6{clip-path:url(#SVGID_00000067197114319690622230000005633092435462353313_);fill:url(#SVGID_00000101817368550202286070000009986694209527569577_);}
+	
+		.st7{clip-path:url(#SVGID_00000067197114319690622230000005633092435462353313_);fill:url(#SVGID_00000045582619973851187350000005639433440726618811_);}
+	.st8{fill:url(#SVGID_00000085251755724403570280000011975310186819709076_);}
 </style>
-<g id="Заполнение">
+<g>
 	<defs>
-		<circle id="SVGID_1_" cx="8" cy="8" r="7.5"/>
+		<circle id="SVGID_1_" cx="8" cy="8" r="8"/>
 	</defs>
-	<clipPath id="SVGID_00000053545376536266711140000001477939851269033378_">
+	<clipPath id="SVGID_00000000908718690875785850000018227741910713482426_">
 		<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
 	</clipPath>
+	<g style="display:none;clip-path:url(#SVGID_00000000908718690875785850000018227741910713482426_);">
+		<rect x="-4" y="-4" class="st1" width="24" height="24"/>
+	</g>
 	
-		<rect x="0.5" y="0.5" style="clip-path:url(#SVGID_00000053545376536266711140000001477939851269033378_);fill:#29ABE2;stroke:#00A99D;stroke-miterlimit:10;" width="15" height="15"/>
+		<linearGradient id="SVGID_00000046303782350301998990000001428149195129573260_" gradientUnits="userSpaceOnUse" x1="-0.6617" y1="13.0008" x2="16.6617" y2="2.9992">
+		<stop  offset="0" style="stop-color:#296F7F"/>
+		<stop  offset="1" style="stop-color:#42BFEA"/>
+	</linearGradient>
+	
+		<circle style="clip-path:url(#SVGID_00000000908718690875785850000018227741910713482426_);fill:url(#SVGID_00000046303782350301998990000001428149195129573260_);" cx="8" cy="8" r="10"/>
 </g>
-<g id="Круг_00000120540359401835202460000006604565340274935698_">
-	<circle class="st1" cx="8" cy="8" r="7.5"/>
-</g>
-<g id="Сетка" class="st2">
+<g class="st3">
 	<defs>
-		<circle id="SVGID_00000116933679710199785590000004557288344832170680_" class="st2" cx="8" cy="8" r="8"/>
+		<circle id="SVGID_00000160905717610893114430000012538281137853921187_" class="st3" cx="8" cy="8" r="8"/>
 	</defs>
-	<clipPath id="SVGID_00000036218513872434458160000009570288683241041559_">
-		<use xlink:href="#SVGID_00000116933679710199785590000004557288344832170680_"  style="overflow:visible;"/>
+	<clipPath id="SVGID_00000056411003900172274930000016180754259430269070_">
+		<use xlink:href="#SVGID_00000160905717610893114430000012538281137853921187_"  style="overflow:visible;"/>
 	</clipPath>
 	
-		<ellipse style="clip-path:url(#SVGID_00000036218513872434458160000009570288683241041559_);fill:none;stroke:#000000;stroke-miterlimit:10;" cx="8" cy="8" rx="3.5" ry="8.5"/>
+		<ellipse style="clip-path:url(#SVGID_00000056411003900172274930000016180754259430269070_);fill:none;stroke:#F2F2F2;stroke-miterlimit:10;" cx="8" cy="8" rx="3.5" ry="8.5"/>
 	
-		<line style="clip-path:url(#SVGID_00000036218513872434458160000009570288683241041559_);fill:none;stroke:#000000;stroke-miterlimit:10;" x1="-0.5" y1="8" x2="16.5" y2="8"/>
+		<line style="clip-path:url(#SVGID_00000056411003900172274930000016180754259430269070_);fill:none;stroke:#F2F2F2;stroke-miterlimit:10;" x1="-0.5" y1="8" x2="16.5" y2="8"/>
 	
-		<path style="clip-path:url(#SVGID_00000036218513872434458160000009570288683241041559_);fill:none;stroke:#000000;stroke-miterlimit:10;" d="
+		<path style="clip-path:url(#SVGID_00000056411003900172274930000016180754259430269070_);fill:none;stroke:#F2F2F2;stroke-miterlimit:10;" d="
 		M1,13c4.1-2.5,9.9-2.5,14,0"/>
 	
-		<path style="clip-path:url(#SVGID_00000036218513872434458160000009570288683241041559_);fill:none;stroke:#000000;stroke-miterlimit:10;" d="
+		<path style="clip-path:url(#SVGID_00000056411003900172274930000016180754259430269070_);fill:none;stroke:#F2F2F2;stroke-miterlimit:10;" d="
 		M14,3"/>
 	
-		<path style="clip-path:url(#SVGID_00000036218513872434458160000009570288683241041559_);fill:none;stroke:#000000;stroke-miterlimit:10;" d="
+		<path style="clip-path:url(#SVGID_00000056411003900172274930000016180754259430269070_);fill:none;stroke:#F2F2F2;stroke-miterlimit:10;" d="
 		M2,3"/>
 	
-		<path style="clip-path:url(#SVGID_00000036218513872434458160000009570288683241041559_);fill:none;stroke:#000000;stroke-miterlimit:10;" d="
+		<path style="clip-path:url(#SVGID_00000056411003900172274930000016180754259430269070_);fill:none;stroke:#F2F2F2;stroke-miterlimit:10;" d="
 		M1,3c4.1,2.6,9.9,2.6,14,0"/>
+	
+		<circle style="display:none;clip-path:url(#SVGID_00000056411003900172274930000016180754259430269070_);fill:none;stroke:#F2F2F2;stroke-miterlimit:10;" cx="8" cy="8" r="8.5"/>
 </g>
-<g id="Заполнение__x28_копия_x29_">
+<g>
 	<defs>
-		<circle id="SVGID_00000137090019690855520760000005183843518050006692_" cx="8" cy="8" r="8"/>
+		<circle id="SVGID_00000064320390435689636790000012430642987673189538_" cx="8" cy="8" r="8"/>
 	</defs>
-	<clipPath id="SVGID_00000044856722058617226510000002154344748026956441_">
-		<use xlink:href="#SVGID_00000137090019690855520760000005183843518050006692_"  style="overflow:visible;"/>
+	<clipPath id="SVGID_00000044886079122232872430000009896206138042331809_">
+		<use xlink:href="#SVGID_00000064320390435689636790000012430642987673189538_"  style="overflow:visible;"/>
 	</clipPath>
 	
-		<polyline style="clip-path:url(#SVGID_00000044856722058617226510000002154344748026956441_);fill:#333333;stroke:#333333;stroke-miterlimit:10;" points="
-		-2,17 4.5,7.5 11,17 	"/>
+		<linearGradient id="SVGID_00000054224639693592496970000007954315169946083747_" gradientUnits="userSpaceOnUse" x1="4" y1="20" x2="4" y2="6">
+		<stop  offset="0" style="stop-color:#191919"/>
+		<stop  offset="1" style="stop-color:#4D4D4D"/>
+	</linearGradient>
 	
-		<polyline style="clip-path:url(#SVGID_00000044856722058617226510000002154344748026956441_);fill:#4D4D4D;stroke:#4D4D4D;stroke-miterlimit:10;" points="
-		6.5,16.5 10.5,9.5 15,16.5 	"/>
+		<polygon style="clip-path:url(#SVGID_00000044886079122232872430000009896206138042331809_);fill:url(#SVGID_00000054224639693592496970000007954315169946083747_);" points="
+		12,20 4,6 -4,20 	"/>
+	
+		<linearGradient id="SVGID_00000135651618466256323380000008815280634680479149_" gradientUnits="userSpaceOnUse" x1="12" y1="20" x2="12" y2="10">
+		<stop  offset="0" style="stop-color:#353535"/>
+		<stop  offset="0" style="stop-color:#282828"/>
+		<stop  offset="1" style="stop-color:#4D4D4D"/>
+	</linearGradient>
+	
+		<polygon style="clip-path:url(#SVGID_00000044886079122232872430000009896206138042331809_);fill:url(#SVGID_00000135651618466256323380000008815280634680479149_);" points="
+		4,20 12,10 20,20 	"/>
 </g>
-<g id="Слой_5">
-	<circle class="st6" cx="11" cy="4" r="1.5"/>
+<g>
+	
+		<linearGradient id="SVGID_00000138554539263997297560000006462478138331351224_" gradientUnits="userSpaceOnUse" x1="10.2498" y1="6.6654" x2="12.7502" y2="2.3346">
+		<stop  offset="0" style="stop-color:#FF5500"/>
+		<stop  offset="1" style="stop-color:#FBB03B"/>
+	</linearGradient>
+	<circle style="fill:url(#SVGID_00000138554539263997297560000006462478138331351224_);" cx="11.5" cy="4.5" r="2.5"/>
 </g>
 </svg>

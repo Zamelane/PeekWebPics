@@ -14,10 +14,14 @@
   color-scheme: dark;
   --c-b0: #000;
   --c-b0a: #000a;
+  --c-b2: #222;
+  --c-b2a: #2229;
   --c-b4: #444;
   --c-b4a: #4449;
   --c-t0: #fff;
-  --c-t8: #888;
+  --c-t0a: #fff9;
+  --c-t7: #888;
+  --c-t7a: #8889;
   --c-a5: #3081f7;
   --border-r: 6px;
   --card-width: 400px;
@@ -38,29 +42,41 @@
     color-scheme: normal;
     --c-b0: #fff;
     --c-b0a: #fff9;
+    --c-b2: #ddd;
+    --c-b2a: #ddd9;
     --c-b4: #bbb;
     --c-b4a: #bbb9;
     --c-t0: #000;
-    --c-t8: #777;
+    --c-t0a: #0009;
+    --c-t7: #777;
+    --c-t7a: #7779;
   }
 }
 :root.dark-theme {
   color-scheme: dark;
   --c-b0: #000;
   --c-b0a: #000a;
+  --c-b2: #222;
+  --c-b2a: #2229;
   --c-b4: #444;
   --c-b4a: #4449;
   --c-t0: #fff;
-  --c-t8: #888;
+  --c-t0a: #fff9;
+  --c-t7: #888;
+  --c-t7a: #8889;
 }
 :root.light-theme {
   color-scheme: normal;
   --c-b0: #fff;
   --c-b0a: #fff9;
+  --c-b2: #ddd;
+  --c-b2a: #ddd9;
   --c-b4: #bbb;
   --c-b4a: #bbb9;
   --c-t0: #000;
-  --c-t8: #777;
+  --c-t0a: #0009;
+  --c-t7: #777;
+  --c-t7a: #7779;
 }
 
 /*  ===  Элементы  ===  */
@@ -161,7 +177,7 @@ body header .path-line .section {
 }
 body header .path-line .section:not(:first-child)::before {
   content: "/";
-  color: var(--c-t8);
+  color: var(--c-t7);
   font-size: 24px;
   padding: 0 4px;
 }
@@ -173,7 +189,7 @@ body header .path-line a {
   text-overflow: ellipsis;
 }
 body header .path-line .folder-select-btn {
-  color: var(--c-t8);
+  color: var(--c-t7);
   margin: 0 2px;
 }
 body header .path-line .folder-select-btn:hover {
@@ -201,10 +217,11 @@ body .sidebar_outer {
   -webkit-backdrop-filter: blur(var(--div-blur));
           backdrop-filter: blur(var(--div-blur));
   overflow-x: hidden;
-  padding-top: var(--header-height);
   box-sizing: border-box;
   opacity: 0;
   transition: left 0.1s, opacity 0.1s;
+  display: grid;
+  grid-template-columns: 1fr 16px;
 }
 @media (max-width: 450px) {
   body .sidebar_outer {
@@ -216,12 +233,13 @@ body .sidebar_outer {
 body .sidebar {
   box-sizing: border-box;
   padding: 8px;
+  padding-top: calc(var(--header-height) + 8px);
+  padding-right: 0;
   display: flex;
   flex-direction: column;
   overflow: auto;
   gap: 16px;
   height: 100%;
-  position: relative;
 }
 body .sidebar .btn-place {
   display: grid;
@@ -247,7 +265,7 @@ body .sidebar .tree-item input[type=checkbox] {
 }
 body .sidebar .tree-item .label {
   font-size: 16px;
-  color: var(--c-t8);
+  color: var(--c-t7);
   display: inline-flex;
   align-items: center;
   border-radius: var(--border-r);
@@ -327,10 +345,7 @@ body.sidebar--open.sidebar--pin .grid_outer {
 }
 body .sidebar_outer .resizer {
   cursor: col-resize;
-  position: absolute;
-  width: 15px;
-  right: 0;
-  height: 95%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -341,18 +356,18 @@ body .sidebar_outer .resizer {
   }
 }
 body .sidebar_outer .resizer .bar {
-  height: 15%;
-  width: 5px;
-  background: var(--c-t8);
+  height: 20%;
+  width: 7px;
+  background: var(--c-b4a);
   border-radius: 4px;
   transition: 0.2s;
 }
 body .sidebar_outer .resizer:hover .bar {
-  background: var(--c-t0);
+  background: var(--c-t7a);
 }
 body .sidebar_outer .resizer:active .bar {
-  background: var(--c-t0);
-  height: 50%;
+  background: var(--c-t7);
+  height: 65%;
 }
 body .sidebar_outer:not(:hover) .resizer .bar {
   background-color: transparent;

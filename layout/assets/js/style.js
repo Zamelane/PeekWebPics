@@ -5,36 +5,38 @@ const $body = $('html > body');
 const debouncedUpdateGrid = debounce(updateGrid, 125);
 const throttledUpdateGrid = throttle(updateGrid, 125);
 
-function debounce(callee, delay) {
+// Если было вызвано повторно через "delay" мс,
+// то откладывает вызов функции "func" на "delay" мс 
+function debounce(func, delay) {
   return function perform(...args) {
-    let previousCall = this.lastCall
-    this.lastCall = Date.now()
+    let previousCall = this.lastCall;
+    this.lastCall = Date.now();
 
     if (previousCall && this.lastCall - previousCall <= delay) {
-      clearTimeout(this.lastCallTimer)
+      clearTimeout(this.lastCallTimer);
     }
-    this.lastCallTimer = setTimeout(() => callee(...args), delay)
+    this.lastCallTimer = setTimeout(() => func(...args), delay);
   }
 }
-function throttle(callee, delay) {
+// Если было вызвано повторно через "delay" мс,
+// то не принимает вызов в течении  "delay" мс 
+function throttle(func, delay) {
   let timer = null
   return function perform(...args) {
-    if (timer) return
+    if (timer) return;
 
     timer = setTimeout(() => {
-      callee(...args)
+      func(...args);
 
-      clearTimeout(timer)
-      timer = null
-
-      callee(...args) // Почему-то второй вызов помогает горизонтальной кладке
-    }, delay)
+      clearTimeout(timer);
+      timer = null;
+    }, delay);
   }
 }
 
 
-// Восстановление бокового меню в исходное состояние 
-if (+localStorage.getItem('showSidebar') 
+// Восстановление бокового меню в исходное состояние
+if (+localStorage.getItem('showSidebar')
 &&  +localStorage.getItem( 'pinSidebar')) toggleSidebar();
 if (+localStorage.getItem( 'pinSidebar'))    pinSidebar();
 // Восстановление темы
@@ -47,16 +49,16 @@ else                                             setVerticalLayout();
 
 
 // Переключание видимости бокового меню
-function toggleSidebar() { 
+function toggleSidebar() {
   $body.toggleClass('sidebar--open');
   localStorage.setItem('showSidebar', ( $body.hasClass('sidebar--open') ? 1 : 0 ));
 
   if(+localStorage.getItem('pinSidebar')) setTimeout(updateGrid, 125);
 }
 // Переключание закрепления бокового меню
-function pinSidebar() { 
+function pinSidebar() {
   $body.toggleClass('sidebar--pin');
-  $body   .hasClass('sidebar--pin') 
+  $body   .hasClass('sidebar--pin')
   ? ( localStorage.setItem('pinSidebar', 1), $('.pin-sidebar-btn').html('Pinned'  ) )
   : ( localStorage.setItem('pinSidebar', 0), $('.pin-sidebar-btn').html('Unpinned') );
 
@@ -73,7 +75,7 @@ function setDarkTheme() {
   $('head').append('<meta name="theme-color" content="#000">');
   localStorage.setItem('setTheme', 1);
   $html.addClass('dark-theme');
-  $('.change-theme-btn').html('Dark')
+  $('.change-theme-btn').html('Dark');
 }
 function setLightTheme() {
   $('[name="theme-color"]').remove();
@@ -81,7 +83,7 @@ function setLightTheme() {
   localStorage.setItem('setTheme', 2);
   $html.removeClass( 'dark-theme');
   $html   .addClass('light-theme');
-  $('.change-theme-btn').html('Light')
+  $('.change-theme-btn').html('Light');
 }
 function setAutoTheme() {
   $('[name="theme-color"]').remove();
@@ -89,13 +91,14 @@ function setAutoTheme() {
   $('head').append('<meta name="theme-color" content="#000" media="(prefers-color-scheme:  dark)">');
   localStorage.setItem('setTheme', 0);
   $html.removeClass('light-theme');
-  $('.change-theme-btn').html('Auto')
+  $('.change-theme-btn').html('Auto');
 }
+
 
 // Переключение раскладки/макета карточек-картинок
 function changeLayout() {
   $grid.isotope('destroy');
-  $body.hasClass('grid--horizontal') 
+  $body.hasClass('grid--horizontal')
   ?   setVerticalLayout()
   : setHorizontalLayout();
 }
@@ -103,8 +106,8 @@ function changeLayout() {
 function setHorizontalLayout() {
   $body.addClass('grid--horizontal');
   localStorage.setItem('horizontalLayout', 1)
-  $('.change-layout-btn').html('Horizontal')
-  
+  $('.change-layout-btn').html('Horizontal');
+
   $grid.isotope({
     layoutMode: 'masonryHorizontal',
     itemSelector: '.grid-item',
@@ -128,7 +131,7 @@ function setHorizontalLayout() {
 // Установка вертикальной раскладки/макета карточек-картинок
 function setVerticalLayout() {
   $body.removeClass('grid--horizontal');
-  localStorage.setItem('horizontalLayout', 0)
+  localStorage.setItem('horizontalLayout', 0);
   $('.change-layout-btn').html('Vertical');
 
   $grid.isotope({
@@ -146,29 +149,35 @@ function setVerticalLayout() {
     let name = i_element[0].src.split('/');
     i_element[0].src = 'thumbs/w400/' + name[name.length - 1];
   }
-  
+
   updateGrid();
 }
 
-// Обновление раскладки/макета карточек-картинок
+// Обновление макета/раскладки карточек-картинок
 function updateGrid() {
-  console.log('Do updateGrid()')
+  console.log('Do updateGrid()');
   $grid.isotope('layout');
 }
 
-// Если (какое-то?) изображение загрузилось, то обновляется макет кирпичного grid'а
-$grid.imagesLoaded().progress(() => {throttledUpdateGrid(); console.log('Need updateGrid')});
+// Событие на конец загрузки на каждое изображение для обновление макета карточек
+$grid.imagesLoaded().progress(() => {
+  console.log('Image loaded. Need updateGrid()');
+  throttledUpdateGrid();
+});
 
-// Обновление раскладки при изменении размеров
-$('.grid_outer').resize(throttledUpdateGrid);
+// Событие на изменение размеров места макета для обновления макета карточек
+$('.grid_outer').resize(() => {
+  console.log('Grid resized. Need updateGrid()');
+  throttledUpdateGrid();
+});
 
 const resizer = document.querySelector('.resizer');
 const html    = document.querySelector(':root'   );
-// События для изменения размеров боковой панели
-resizer.addEventListener("mousedown", (event) => {
-  document.addEventListener("mousemove", resize, false);
-  document.addEventListener("mouseup", () => {
-    document.removeEventListener("mousemove", resize, false);
+// События на перетаскивание бара для изменения размеров бокового меню и обновления макета карточек
+resizer.addEventListener('mousedown', (event) => {
+  document.addEventListener('mousemove', resize, false);
+  document.addEventListener('mouseup', () => {
+    document.removeEventListener('mousemove', resize, false);
   }, false);
 });
 function resize(e) {
@@ -177,7 +186,7 @@ function resize(e) {
 }
 
 
-// Горизонтальный скролл, глючит при сильной нагрузки
+// Горизонтальный скролл
 function horizontalWheel(container) {
   /** Max `scrollLeft` value */
   let scrollWidth;
@@ -206,9 +215,9 @@ function horizontalWheel(container) {
     //e.preventDefault();
     scrollWidth = container.scrollWidth - container.clientWidth;
     targetLeft = Math.min(scrollWidth, Math.max(0, container.scrollLeft + e.deltaY));
-    
+
     requestAnimationFrame(scrollLeft);
   }, {passive: true});
 }
-let $grid_outer = document.querySelector('.grid_outer');
-horizontalWheel($grid_outer);
+let grid_outer = document.querySelector('.grid_outer');
+horizontalWheel(grid_outer);
