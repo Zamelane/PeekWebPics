@@ -157,7 +157,7 @@ function updateGrid() {
 }
 
 // Если (какое-то?) изображение загрузилось, то обновляется макет кирпичного grid'а
-$grid.imagesLoaded().progress(() => {debouncedUpdateGrid(); console.log('Need updateGrid')});
+$grid.imagesLoaded().progress(() => {throttledUpdateGrid(); console.log('Need updateGrid')});
 
 // Обновление раскладки при изменении размеров
 $('.grid_outer').resize(debouncedUpdateGrid);
