@@ -345,13 +345,17 @@ body .sidebar_outer .resizer .bar {
   width: 5px;
   background: var(--c-t8);
   border-radius: 4px;
-  transition: 0.1s;
+  transition: 0.2s;
 }
 body .sidebar_outer .resizer:hover .bar {
   background: var(--c-t0);
 }
 body .sidebar_outer .resizer:active .bar {
+  background: var(--c-t0);
   height: 50%;
+}
+body .sidebar_outer:not(:hover) .resizer .bar {
+  background-color: transparent;
 }
 body.grid-item--blur .grid .grid-item:after {
   content: "";

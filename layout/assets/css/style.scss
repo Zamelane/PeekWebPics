@@ -361,14 +361,18 @@ body {
       width:  5px;
       background: var(--c-t8);
       border-radius: 4px;
-      transition: 0.1s;
+      transition: 0.2s;
     }
     &:hover  .bar {
       background: var(--c-t0);
     }
     &:active .bar {
+      background: var(--c-t0);
       height: 50%;
     }
+  }
+  .sidebar_outer:not(:hover) .resizer .bar {
+    background-color: transparent;
   }
 
   /*  = =  Размытие картинок (устарело)  = =  */

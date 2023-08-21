@@ -160,7 +160,7 @@ function updateGrid() {
 $grid.imagesLoaded().progress(() => {throttledUpdateGrid(); console.log('Need updateGrid')});
 
 // Обновление раскладки при изменении размеров
-$('.grid_outer').resize(debouncedUpdateGrid);
+$('.grid_outer').resize(throttledUpdateGrid);
 
 const resizer = document.querySelector('.resizer');
 const html    = document.querySelector(':root'   );
