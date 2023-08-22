@@ -208,7 +208,7 @@ body {
     left: calc(var(--sidebar-width) * -1);
     width: var(--sidebar-width);
     min-width: 250px;
-    max-width: 100%;
+    max-width: 80%;
     height: 100%;
     background: linear-gradient(90deg, var(--c-b0), var(--c-b0a));
     backdrop-filter: blur(var(--div-blur));
@@ -357,20 +357,22 @@ body {
     .bar {
       height: 20%;
       width:  7px;
-      background: var(--c-b4a);
+      background: var(--c-b4);
       border-radius: 4px;
       transition: 0.2s;
     }
     &:hover  .bar {
-      background: var(--c-t7a);
+      background: var(--c-t7);
     }
-    &:active .bar {
+    &.active .bar {
       background: var(--c-t7);
       height: 65%;
     }
   }
   .sidebar_outer:not(:hover) .resizer .bar {
-    background-color: transparent;
+    @media (hover: hover) {
+      background-color: transparent;
+    }
   }
 
   /*  = =  Размытие картинок (устарело)  = =  */

@@ -173,11 +173,20 @@ $('.grid_outer').resize(() => {
 
 const resizer = document.querySelector('.resizer');
 const html    = document.querySelector(':root'   );
-// События на перетаскивание бара для изменения размеров бокового меню и обновления макета карточек
-resizer.addEventListener('mousedown', (event) => {
-  document.addEventListener('mousemove', resize, false);
-  document.addEventListener('mouseup', () => {
-    document.removeEventListener('mousemove', resize, false);
+// События на вызов контекстного меню и перетаскивание бара 
+// для изменения размеров бокового меню и обновления макета карточек
+resizer.oncontextmenu = function(event) {
+  event.preventDefault();
+  event.stopPropagation(); 
+  event.stopImmediatePropagation();
+  return false;
+};
+resizer.addEventListener('pointerdown', (event) => {
+  resizer.classList.add('active');
+  document.addEventListener('pointermove', resize, false);
+  document.addEventListener('pointerup', () => {
+    resizer.classList.remove('active');
+    document.removeEventListener('pointermove', resize, false);
   }, false);
 });
 function resize(e) {
