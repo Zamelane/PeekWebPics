@@ -94,6 +94,7 @@
   font-size: 16px;
   background-color: transparent;
   color: var(--c-t0);
+  transition: 0.2s;
 }
 .btn * {
   fill: var(--c-t0);
@@ -125,6 +126,7 @@
   background-color: transparent;
   color: var(--c-t0);
   padding: 0 6px 0 4px;
+  transition: 0.2s;
 }
 .droplist:hover {
   background-color: var(--c-b4a);
@@ -210,6 +212,7 @@ body .sidebar_outer {
   top: 0;
   left: calc(var(--sidebar-width) * -1);
   width: var(--sidebar-width);
+  padding-top: var(--header-height);
   min-width: 250px;
   max-width: 80%;
   height: 100%;
@@ -233,7 +236,6 @@ body .sidebar_outer {
 body .sidebar {
   box-sizing: border-box;
   padding: 8px;
-  padding-top: calc(var(--header-height) + 8px);
   padding-right: 0;
   display: flex;
   flex-direction: column;
@@ -251,12 +253,17 @@ body .sidebar .btn-place {
     display: none;
   }
 }
+body .sidebar .tree:hover .tree-item .branches {
+  border-left: 1px solid var(--c-b4);
+}
 body .sidebar .tree-item {
   cursor: pointer;
   display: block;
-}
-body .sidebar .tree-item:hover > .label {
-  text-decoration: underline;
+  /*
+  &:hover > .label {
+    text-decoration: underline;
+  }
+  */
 }
 body .sidebar .tree-item input[type=checkbox] {
   visibility: hidden;
@@ -269,7 +276,13 @@ body .sidebar .tree-item .label {
   display: inline-flex;
   align-items: center;
   border-radius: var(--border-r);
+  padding-right: 8px;
   height: 32px;
+  /*
+  &:hover {
+    background: var(--c-b4a);
+  }
+  */
 }
 body .sidebar .tree-item .label::before {
   content: "";
@@ -285,8 +298,9 @@ body .sidebar .tree-item input[type=checkbox]:checked + .label {
 }
 body .sidebar .tree-item .branches {
   display: none;
-  margin-left: 14px;
-  border-left: 2px solid var(--c-b4);
+  margin-left: 8px;
+  border-left: 1px solid transparent;
+  transition: 0.2s;
   /*
   display: flex;
   flex-direction: column;
@@ -311,14 +325,14 @@ body .sidebar footer .copyright {
   gap: 8px;
   font-size: 14px;
 }
-body .sidebar footer .linkplace {
+body .sidebar footer .linksplace {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 16px;
 }
-body .sidebar footer .linkplace a {
+body .sidebar footer .linksplace a {
   color: var(--c-a5);
   text-decoration: unset;
   display: flex;
@@ -328,7 +342,7 @@ body .sidebar footer .linkplace a {
   padding: 0 6px;
   font-size: 14px;
 }
-body .sidebar footer .linkplace a:hover {
+body .sidebar footer .linksplace a:hover {
   text-decoration: underline;
 }
 @media (max-width: 450px) {
@@ -365,14 +379,14 @@ body .sidebar_outer .resizer .bar {
 body .sidebar_outer .resizer:hover .bar {
   background: var(--c-t7);
 }
-body .sidebar_outer .resizer.active .bar {
-  background: var(--c-t7);
-  height: 65%;
-}
 @media (hover: hover) {
   body .sidebar_outer:not(:hover) .resizer .bar {
     background-color: transparent;
   }
+}
+body.sidebar--resize-active .resizer .bar {
+  background: var(--c-t7);
+  height: 65%;
 }
 body.grid-item--blur .grid .grid-item:after {
   content: "";
@@ -387,11 +401,15 @@ body.grid-item--blur .grid .grid-item:after {
 body .grid_outer {
   padding: var(--header-height) var(--cards-gap) 0;
   overflow-x: hidden;
+  transition: 0.1s;
 }
 @media (max-width: 824px) {
   body .grid_outer {
     padding: var(--header-height) 0 0;
   }
+}
+body.sidebar--resize-active .grid_outer {
+  transition: none;
 }
 body .grid {
   margin: 0 auto;

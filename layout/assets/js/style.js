@@ -36,10 +36,11 @@ function throttle(func, delay) {
 
 
 // Восстановление бокового меню в исходное состояние
-if (+localStorage.getItem('showSidebar')
-&&  +localStorage.getItem( 'pinSidebar')) toggleSidebar();
-if (+localStorage.getItem( 'pinSidebar'))    pinSidebar();
-// Восстановление темы
+if (+localStorage.getItem('pinSidebar')) {
+  pinSidebar();
+  if (+localStorage.getItem('showSidebar')) toggleSidebar();
+}
+// Восстановление темы в исходное состояние
 if      (localStorage.getItem('setTheme') == 1)  setDarkTheme();
 else if (localStorage.getItem('setTheme') == 2) setLightTheme();
 else                                             setAutoTheme();
@@ -182,10 +183,10 @@ resizer.oncontextmenu = function(event) {
   return false;
 };
 resizer.addEventListener('pointerdown', (event) => {
-  resizer.classList.add('active');
+  $body.addClass('sidebar--resize-active');
   document.addEventListener('pointermove', resize, false);
   document.addEventListener('pointerup', () => {
-    resizer.classList.remove('active');
+    $body.removeClass('sidebar--resize-active');
     document.removeEventListener('pointermove', resize, false);
   }, false);
 });

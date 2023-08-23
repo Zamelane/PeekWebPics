@@ -83,6 +83,7 @@
   font-size: 16px;
   background-color: transparent;
   color: var(--c-t0);
+  transition: 0.2s;
   * {
     fill: var(--c-t0);
   }
@@ -114,6 +115,7 @@
   background-color: transparent;
   color: var(--c-t0);
   padding: 0 6px 0 4px;
+  transition: 0.2s;
   &:hover {
     background-color: var(--c-b4a);
   }
@@ -198,7 +200,7 @@ body {
       }
     }
   }
-
+  
   /*  = =  Боковое меню  = =  */
 
   .sidebar_outer {
@@ -207,6 +209,7 @@ body {
     top: 0;
     left: calc(var(--sidebar-width) * -1);
     width: var(--sidebar-width);
+    padding-top: var(--header-height);
     min-width: 250px;
     max-width: 80%;
     height: 100%;
@@ -228,7 +231,6 @@ body {
   .sidebar {
     box-sizing: border-box;
     padding: 8px;
-    padding-top: calc(var(--header-height) + 8px);
     padding-right: 0;
     display: flex;
     flex-direction: column;
@@ -248,15 +250,20 @@ body {
     }
     // Дерево
     .tree {
+      &:hover .tree-item .branches {
+        border-left: 1px solid var(--c-b4);
+      }
       &-item {
         cursor: pointer;
         display: block;
+        /*
         &:hover > .label {
           text-decoration: underline;
         }
+        */
         input[type="checkbox"] {
           visibility: hidden;
-          width: 0;
+          width:  0;
           height: 0;
         }
         .label {
@@ -265,7 +272,13 @@ body {
           display: inline-flex;
           align-items: center;
           border-radius: var(--border-r);
+          padding-right: 8px;
           height: 32px;
+          /*
+          &:hover {
+            background: var(--c-b4a);
+          }
+          */
           &::before {
             content: '';
             background: url("./../img/icon/arrow-corner_gray.svg");
@@ -281,8 +294,9 @@ body {
         }
         .branches {
           display: none;
-          margin-left: 14px;
-          border-left: 2px solid var(--c-b4);
+          margin-left: 8px;
+          border-left: 1px solid transparent;
+          transition: 0.2s;
           /*
           display: flex;
           flex-direction: column;
@@ -309,7 +323,7 @@ body {
         gap: 8px;
         font-size: 14px;
       }
-      .linkplace {
+      .linksplace {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -364,15 +378,15 @@ body {
     &:hover  .bar {
       background: var(--c-t7);
     }
-    &.active .bar {
-      background: var(--c-t7);
-      height: 65%;
-    }
   }
   .sidebar_outer:not(:hover) .resizer .bar {
     @media (hover: hover) {
       background-color: transparent;
     }
+  }
+  &.sidebar--resize-active .resizer .bar {
+    background: var(--c-t7);
+    height: 65%;
   }
 
   /*  = =  Размытие картинок (устарело)  = =  */
@@ -393,9 +407,13 @@ body {
     //transition: margin 0.1s, left 0.1s;
     padding: var(--header-height) var(--cards-gap) 0;
     overflow-x: hidden;
+    transition: 0.1s;
     @media (max-width: 824px) {
       padding: var(--header-height) 0 0;
     }
+  }
+  &.sidebar--resize-active .grid_outer {
+    transition: none;
   }
   .grid {
     margin: 0 auto;
